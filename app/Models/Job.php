@@ -9,9 +9,14 @@ use Illuminate\Support\Arr;
 
 class  Job extends Model{
     use HasFactory;
-    
+
     protected $table='job_listings';
-    //when we said its gonna have the same name as the table
+
     protected $fillable = ['title', 'salary'];
+
+    public function employer(){
+        
+        return $this->belongsTo(Employer::class);
+    }
 
 }
