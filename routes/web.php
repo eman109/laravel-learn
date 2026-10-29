@@ -11,25 +11,22 @@ Route::get('/', function () {
 Route::get('/jobs', function (){
     $jobs=Job::with('employer')->simplePaginate(3); 
 
-    return view('jobs',[
+    return view('jobs.index',[
         'jobs'=> $jobs
     ]);
 });
 
 Route::get('/jobs/create', function(){
-    dd('hello there');
-
+    
+    return view('jobs.create');
 });
 
-//this is a wild card means listen for jobs/anything including create hence adding
-//jobs/create under it isnt working so if
-//explicit->add it before the wild card
+
 Route::get('/jobs/{id}',function($id) {
     $job=Job::find($id);
 
-    return view('job',['job'=>$job]);
-});
-
+    return view('jobs.show',['job'=>$job]);
+}); 
 
 
 Route::get('/contact', function(){
