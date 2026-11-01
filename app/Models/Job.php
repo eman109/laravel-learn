@@ -5,14 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
-//way of grouping things to avoid future coliisions
 
 class  Job extends Model{
     use HasFactory;
 
     protected $table='job_listings';
 
-    protected $fillable = ['title', 'salary'];
+    // protected $fillable = ['employer_id','title', 'salary'];
+    protected $guarded = [];
 
     public function employer(){
         
