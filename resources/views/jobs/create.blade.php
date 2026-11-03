@@ -19,16 +19,26 @@
                     Title
                 </label>
                 <input type="text" name="title" id="title" placeholder="Happiness Engineer"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" required>
             </div>
+
+            @error('title')
+                <p class="text-xs text-red-500 font-semibold">{{$message}}</p>
+            @enderror
+
+
             <div class="mb-5">
-                <label for="phone" class="mb-3 block text-base font-medium text-[#07074D]">
+                <label for="salary" class="mb-3 block text-base font-medium text-[#07074D]">
                     Salary
                 </label>
                 <input type="text" name="salary" id="salary" placeholder="$100,000 per year"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" required>
             </div>
-                   
+
+             @error('salary')
+                <p class="text-xs text-red-500 font-semibold">{{$message}}</p>
+            @enderror
+                                   
             
         <div class="flex justify-center gap-4">
             <button
@@ -41,6 +51,17 @@
             </button>
         </div>
     </div>
+        {{-- <div class="mt-10">
+
+            @if ($errors->any()) 
+                <ul>
+                    @foreach ( $errors->all() as $error )
+                        <li class="text-red-500 italic">{{$error}}</li>   
+                    @endforeach
+                </ul>
+            @endif
+
+        </div> --}}
         </form>
     </div>
 </div>
