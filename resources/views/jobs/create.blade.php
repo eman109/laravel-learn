@@ -14,30 +14,19 @@
                 <h2 class="mt-1 text-sm leading-6 text-gray-600">We just need a handful of details from you</h2>
                 
             </div>
-            <div class="mb-5">
-                <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
-                    Title
-                </label>
-                <input type="text" name="title" id="title" placeholder="Happiness Engineer"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" required>
-            </div>
+            <x-form-field>
+                <x-form-label for='title'>Title</x-form-label>
+                <x-form-input name="title" id="title" placeholder="Happiness Engineer" required/>
+            </x-form-field>
 
-            @error('title')
-                <p class="text-xs text-red-500 font-semibold">{{$message}}</p>
-            @enderror
-
+            <x-form-error name='title'/>
 
             <div class="mb-5">
-                <label for="salary" class="mb-3 block text-base font-medium text-[#07074D]">
-                    Salary
-                </label>
-                <input type="text" name="salary" id="salary" placeholder="$100,000 per year"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" required>
+                <x-form-label for="salary" >Salary</x-form-label>
+                <x-form-input name="salary" id="salary" placeholder="$100,000 per year" required/>
             </div>
 
-             @error('salary')
-                <p class="text-xs text-red-500 font-semibold">{{$message}}</p>
-            @enderror
+             <x-form-error name="salary"/>
                                    
             
         <div class="flex justify-center gap-4">
@@ -45,23 +34,10 @@
                 class="hover:shadow-form  rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
                 Save
             </button>
-            <button
-                class="hover:shadow-form  rounded-md bg-[#35f0be] py-3 px-8 text-center text-base font-semibold text-black outline-none">
-                Cancel
-            </button>
+            <x-form-button>Cancel</x-form-button>
         </div>
     </div>
-        {{-- <div class="mt-10">
 
-            @if ($errors->any()) 
-                <ul>
-                    @foreach ( $errors->all() as $error )
-                        <li class="text-red-500 italic">{{$error}}</li>   
-                    @endforeach
-                </ul>
-            @endif
-
-        </div> --}}
         </form>
     </div>
 </div>
