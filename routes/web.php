@@ -12,7 +12,9 @@ Route::get('/jobs', [JobController::class, 'index']);
 Route::get('/jobs/create', [JobController::class, 'create']);
 Route::post('/jobs', [JobController::class, 'store'])->middleware('auth');
 Route::get('/jobs/{job}', [JobController::class, 'show']);
-Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware('auth')->can('edit-job','job');
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])->middleware('auth')->can('edit','job');
+//can-> references the edit policy, it used to reference the gate's name 
+//find the job and run the authorization edit policy on it
 Route::patch('/jobs/{job}', [JobController::class, 'update'])->middleware('auth');
 Route::delete('/jobs/{job}', [JobController::class, 'destroy'])->middleware('auth');
 
